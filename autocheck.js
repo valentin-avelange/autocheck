@@ -1,9 +1,12 @@
-const axios = require('axios');
 const Etherscan_api_key = "BPJUERGUSIPES6BCK23ZASHZ6VEU6Y2TJH";
-const ethereum_address = "0x494DE720C57B5240Ed3045e29679FbD283ed7562";
+
+let verificationEnCours = false; // Variable pour suivre l'état de la vérification
 
 const checkBalance = async () => {
-  try {
+const ethereum_address = document.getElementById("ethereum_address").value;
+
+  if (verificationEnCours) {
+    try {
     const url = `https://api.etherscan.io/api?module=account&action=balance&address=${ethereum_address}&tag=latest&apikey=${Etherscan_api_key}`;
     const response = await axios.get(url);
 
@@ -11,8 +14,8 @@ const checkBalance = async () => {
       const data = response.data;
       const balance_wei = parseInt(data.result);
       const balance_eth = balance_wei / 10**18;  // Conversion wei en Ether
-
       console.log(`Solde: ${balance_eth} ETH`);
+      document.getElementById("output").innerHTML = (`Solde: ${balance_eth} ETH`);
 
       if (balance_eth > 0.0005) {
         console.log("Retirer l'argent");
@@ -23,5 +26,17 @@ const checkBalance = async () => {
   } catch (error) {
     console.log(`Une erreur s'est produite : ${error}`);
   }
-};
+};}
 setInterval(checkBalance, 1000);
+
+document.getElementById("startStopButton").addEventListener("click", () => {
+  if (!verificationEnCours) {
+    verificationEnCours = true;
+    document.getElementById("startStopButton").textContent = "Arrêter la vérification";
+    checkBalanceInterval = setInterval(checkBalance, 1000);
+  } else {
+    verificationEnCours = false;
+    document.getElementById("startStopButton").textContent = "Démarrer la vérification";
+    clearInterval(checkBalanceInterval);
+  }
+});

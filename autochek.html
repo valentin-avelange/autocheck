@@ -6,14 +6,14 @@
     <title>Autocheck</title>
 </head>
 <body>
-    <header>
-        <h1>Autocheck</h1>
-    </header>
-    <button onclick="checkBalance()">GetBalance</button>
-    
-    <div id="output">
-        Boujour
-    </div>
+
+    <input type="text" id="ethereum_address" placeholder="Adresse Etherscan">
+
+    <button id="startStopButton">Start Check</button>
+    <div id="output" style="margin-top: 20px;"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="autocheck.js"></script>
 </body>
-<script src="autocheck.js"></script>
 </html>
