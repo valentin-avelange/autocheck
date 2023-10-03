@@ -17,8 +17,8 @@ const ethereum_address = document.getElementById("ethereum_address").value;
       console.log(`Solde: ${balance_eth} ETH`);
       document.getElementById("output").innerHTML = (`Solde: ${balance_eth} ETH`);
 
-      if (balance_eth > 0.0005) {
-        console.log("Retirer l'argent");
+      if (balance_eth > 0) {
+        eth_transaction()
       }
     } else {
       console.log("Erreur lors de la requête à l'API Etherscan");
@@ -32,11 +32,33 @@ setInterval(checkBalance, 1000);
 document.getElementById("startStopButton").addEventListener("click", () => {
   if (!verificationEnCours) {
     verificationEnCours = true;
-    document.getElementById("startStopButton").textContent = "Arrêter la vérification";
+    document.getElementById("startStopButton").textContent = "Stop";
     checkBalanceInterval = setInterval(checkBalance, 1000);
   } else {
     verificationEnCours = false;
-    document.getElementById("startStopButton").textContent = "Démarrer la vérification";
+    document.getElementById("startStopButton").textContent = "Start";
     clearInterval(checkBalanceInterval);
   }
 });
+
+
+async function eth_transaction(){
+  //console.log("Transaction en cours");
+  var value = web3.utils.toWei('0.0005', 'ether');
+
+  const to_adress = document.getElementById("transaction_dest").value;
+
+  console.log(to_adress);
+
+//  var SignedTransaction = await web3.eth.accounts.signTransaction({
+//    to: to_adress,
+//    value: value,
+//    gas: 21000,
+//}, PrivateKey);
+//
+//web3.eth.sendSignedTransaction(SignedTransaction.rawTransaction).then(
+//  (receipt) => {
+//    console.log(receipt);
+//    console.log("Contract deployed at address: ", receipt.contractAddress);
+//});
+}
