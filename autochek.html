@@ -3,18 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <title>Autocheck</title>
 </head>
 <body>
 
-    <input type="text" id="ethereum_address" placeholder="Adresse Etherscan">
+    <h5 class="title">Autocheck</h5>
 
-    <button id="startStopButton">Start</button>
-    <div id="output" style="margin-top: 10px;"></div>
+    <button id="lightMode"> 
+        <i class="fa-regular fa-sun" style="color: #ffffff;"></i>
+    </button>
 
-    <input type="text" id="to_address" placeholder="Destination de transaction" style="margin-top: 10px;">
+    <div class="container"> 
+        
+        <div class="left">
+            <div style="display: flex;justify-content: center;">
+                <p>Solde ETH</p>
+                <div id="lds-dual-ring"></div>
+            </div>
+            
+            <input type="text" id="ethereum_address" placeholder="Adresse Etherscan" style="width: 440px;">
+            <button id="startStopButton" style="width: 60px;">Start</button>
+            <div id="output" style="margin-top: 10px;"></div>
+        </div>
+
+        <div class="right">
+            <p>Transactions ETH</p>
+            <input type="text" id="to_address" placeholder="Destination de transaction" style="width: 500px;">
+            <div id="transactionOutput" style="margin-top: 10px;"></div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="autocheck.js"></script>
+    <script src="transaction.js"></script>
+    <script src="lightMode.js"></script>
 </body>
 </html>

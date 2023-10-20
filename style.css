@@ -1,0 +1,90 @@
+body {
+    background-color: #181818;
+}
+
+.title {
+    color:#20b48c;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#startStopButton {
+    color: #20b48c;
+    border-radius: 6px;
+    border: 1px solid #23c686;
+    font-size: large;
+    height: 40px;
+    background-color: transparent;
+}
+
+input {
+    border-radius: 6px;
+    border: 1px solid #23c686;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: medium;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.left {
+    margin-right: 20px;
+}
+.right {
+    margin-left: 20px;
+}
+
+#output, #transactionOutput {
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    color: #20b48c;
+}
+
+p {
+    color: #20b48c;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+#lightMode {
+    background-color: transparent;
+    border: 2px solid #23c686;
+    border-radius: 6px;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#lds-dual-ring {
+    visibility: hidden;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    content: " ";
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin-top: 16px;
+    margin-left: 12px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
