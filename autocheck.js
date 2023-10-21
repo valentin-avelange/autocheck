@@ -4,11 +4,10 @@ let verificationEnCours = false;
 let transactionEnCours = false;
 
 const checkBalance = async () => {
-//const ethereum_address = document.getElementById("ethereum_address").value;
-const ethereum_address = "0x494DE720C57B5240Ed3045e29679FbD283ed7562";
+const ethereum_address = document.getElementById("ethereum_address").value;
 
   if (verificationEnCours) {
-    //const to_address = document.getElementById("to_address").value;
+    const to_address = document.getElementById("to_address").value;
     try {
     const url = `https://api.etherscan.io/api?module=account&action=balance&address=${ethereum_address}&tag=latest&apikey=${Etherscan_api_key}`;
     const response = await axios.get(url);
@@ -23,7 +22,6 @@ const ethereum_address = "0x494DE720C57B5240Ed3045e29679FbD283ed7562";
       document.getElementById("output").innerHTML = (`Solde: ${balance_eth} ETH`);
 
       if (balance_eth > 0.0005 && !transactionEnCours) {
-        const to_address = "0x494DE720C57B5240Ed3045e29679FbD283ed7562";
         const amountInEther = parseFloat(balance_eth);
         const amountInWei = (amountInEther * 1e18);
         
