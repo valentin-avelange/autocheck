@@ -39,14 +39,19 @@ input {
     margin-left: 20px;
 }
 
+.vertical-input {
+    display: block;
+    margin-bottom: 10px;
+}
+
 #output, #transactionOutput {
     font-family: 'Roboto', sans-serif;
     font-size: large;
-    color: #20b48c;
+    color: #23c686;
 }
 
 p {
-    color: #20b48c;
+    color: #23c686;
     font-family: 'Roboto', sans-serif;
     font-size: large;
     font-weight: bold;
@@ -79,12 +84,11 @@ p {
     border: 3px solid #fff;
     border-color: #fff transparent #fff transparent;
     animation: lds-dual-ring 1.2s linear infinite;
-  }
-  @keyframes lds-dual-ring {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
+}
+
+@keyframes lds-dual-ring {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+

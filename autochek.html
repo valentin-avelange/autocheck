@@ -32,7 +32,11 @@
 
         <div class="right">
             <p>Transactions ETH</p>
-            <input type="text" id="to_address" placeholder="Destination de transaction" style="width: 500px;">
+            <div style="display: flex;">
+                <input class="vertical-input" type="text" id="seuilValue" placeholder="Valeur seuil de vérification" value="1" style="width: 400px;height: 40px;">
+                <p style="margin-left: 25px;margin-top: 10px;">ETH</p>
+            </div>
+            <input class="vertical-input" type="text" id="to_address" placeholder="Adresse destination de transaction" style="width: 500px;margin-top: 10px;">
             <div id="transactionOutput" style="margin-top: 10px;"></div>
         </div>
     </div>
